@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET Drive */
+/* GET My Folders */
 router.get('/', function (req, res, next) {
-    res.render('drive', { title: 'MY FOLDERS' });
+    res.render('myFolders', { title: 'My Folders' });
 });
 
 module.exports = router;
