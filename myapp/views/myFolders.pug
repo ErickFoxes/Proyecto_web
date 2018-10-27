@@ -1,23 +1,6 @@
 extends layout
 
 block content
-    header(class='logo')
-        a(href="#", id='logo')
-            img(src='/img/repotgray.png', alt='repotgray.png')
-        p REPOT
-    article(class='userMenu')
-        section(class='ajustes')
-            a(href='#', class='avatar main')
-                img(src='/img/avatar.jpg', alt='avatar.jpg')
-            link(rel='Adjust', href='#')
-        section(class='mainOpts')
-            ul(id='mO')
-                li
-                    a(href='#') History
-                li
-                    a(href='#') Create new folder
-                li
-                    a(href='#') Upgrade account
     article(class='myFolders')
         h3  #{title}
         //Lo que se agregue aqui me imagino sera dinamico pues se pondran y se quitaran carpetas xd
