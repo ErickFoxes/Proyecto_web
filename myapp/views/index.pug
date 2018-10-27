@@ -1,9 +1,27 @@
 extends layout
 
-block content  
-  header(class='logo')
+block header
+        header(class='logo')
         a(href="#", id='logo')
             img(src='/img/repotgray.png', alt='repotgray.png')
         p REPOT
-  h1= title
-  p Welcome to #{title}
+        ul(class='bLogSignIn')
+            li
+                input(type='button', value='Sign In', class='deIni sign')
+            li
+                input(type='button', value='Log In', class='deIni log')
+block sideBar
+
+block content  
+
+article(class='Misc')
+    ul(class='links')  
+        li
+            a(href='#') Log In
+        li
+            a(href='#') Sign In
+    ul(class='social')
+        li  facebook
+        li  twitter
+        li  instragram
+        li  youtube
