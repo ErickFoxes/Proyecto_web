@@ -8,6 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var driveRouter = require('./routes/myFolders');
 var fileRouter = require('./routes/folder');
+var loginRouter = require('./routes/login');
+var signinRouter = require('./routes/signin');
 
 var app = express();
 
@@ -25,6 +27,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/myFolders', driveRouter);
 app.use('/folder', fileRouter);
+app.use('/login', loginRouter);
+app.use('/signin', signinRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
