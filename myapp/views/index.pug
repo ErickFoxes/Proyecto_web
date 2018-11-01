@@ -2,9 +2,10 @@ extends layout
 
 block header
         header(class='logo')
-        a(href="#", id='logo')
-            img(src='/img/repotgray.png', alt='repotgray.png')
-        p REPOT
+        div(class='name&Logo')
+            a(href="#", id='logo')
+                img(src='/img/repotgray.png', alt='repotgray.png')
+            p REPOT
         ul(class='bLogSignIn')
             li
                 input(type='button', value='Sign In', class='deIni sign')
@@ -13,15 +14,20 @@ block header
 block sideBar
 
 block content  
-
-article(class='Misc')
-    ul(class='links')  
-        li
-            a(href='#') Log In
-        li
-            a(href='#') Sign In
-    ul(class='social')
-        li  facebook
-        li  twitter
-        li  instragram
-        li  youtube
+    article(class=aboutUs)
+        h1(id=aboutUs class=indexHeader) About Us
+        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus sunt ad accusantium veniam? Accusamus autem impedit aperiam repudiandae! Tenetur autem aut ab earum repellat tempora. Tempora ea eos recusandae nemo?
+    article(class=premiumA)
+        h1(id=premium class=indexHeader) Brecome a premium user!
+        P Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa reiciendis, aliquid nemo laboriosam, explicabo maiores eaque, veritatis recusandae totam neque nihil aspernatur repellat quos libero voluptatibus. Corrupti voluptatum omnis optio.
+    article(class='Misc')
+        ul(class='links')  
+            li
+                a(href='#') Log In
+            li
+                a(href='#') Sign In
+        ul(class='social')
+            li  facebook
+            li  twitter
+            li  instragram
+            li  youtube
