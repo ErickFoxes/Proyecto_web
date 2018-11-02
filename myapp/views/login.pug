@@ -1,4 +1,13 @@
 extends layout
 
-include nav/loginNav
+include nav/logInNav
 
+block content    
+  form(action='/login' method='post')
+    label(for='username') Username
+    input#username(type='text', name='username')
+    label(for='password') Password
+    input#password(type='password', name='password')
+    input(type='submit', value='Log In')
+  h3(class='dontHaveA') You still do not have an account? Sign up free! 
+    a(href='/signin') Sign up for free
