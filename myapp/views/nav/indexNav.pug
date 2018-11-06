@@ -4,8 +4,9 @@ block nav
             a(href='/', id='logo')
                 img(src='/img/repotgray.png', alt='repotgray.png')
             p REPOT
-        ul(class='bLogSignIn')
-            li
-                input(type='button', value='Sign In', class='deIni sign', onclick="window.location.href='/signin'")
-            li
-                input(type='button', value='Log In', class='deIni log', onclick="window.location.href='/login'")
+        nav(class = 'indexNav')
+            ul(class='bLogSignIn')
+                li
+                    input(type='button', value='Sign In', class='deIni sign', onclick="window.location.href='/signin'")
+                li
+                    input(type='button', value='Log In', class='deIni log', onclick="window.location.href='/login'")

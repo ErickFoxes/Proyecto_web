@@ -5,14 +5,15 @@ block sideBar
                 img(src='/img/avatar.jpg', alt='avatar.jpg')
             link(rel='Settings', href='/settings')
         section(class='mainOpts')
-            ul(id='mO')
-                li
-                    a(href='/history') History
-                li
-                    a(href='#') Create new folder
-                li
-                    a(href='#') Upload file
-                li
-                    a(href='#') Go back
-                li
-                    a(href='#') Upgrade account
+            nav(class = 'sideFolderNav')
+                ul(id='mO')
+                    li
+                        a(href='/history') History
+                    li
+                        a(href='#') Create new folder
+                    li
+                        a(href='#') Upload file
+                    li
+                        a(href='#') Go back
+                    li
+                        a(href='#') Upgrade account
