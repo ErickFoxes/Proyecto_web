@@ -162,6 +162,15 @@ body{
   line-height: 1.6em;
 }
 
+/*settings design*/
+.inside_settings {
+  
+}
+
+.inside_settings img{
+  width: 100px;
+}
+
 /*footer design*/
 .final{
   background-color: #333333;
