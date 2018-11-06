@@ -1,8 +1,248 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #090302;
 }
 
-a {
-  color: #00B7FF;
+/*header design*/
+.barra{
+  background-color: #090302;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.barra p{
+  color: #EEF0F2;
+  font-weight: bold;
+  font-size: 1.3em;
+  padding-left: 1em;
+  cursor: pointer;
+}
+
+.indexNav{
+  padding-right: 1em;
+}
+
+.barra nav ul li{
+  display: inline;
+  list-style: none;
+}
+
+.barra input[type='button']{
+  border: 1px transparent solid;
+  background-color: transparent;
+  color: #EEF0F2;
+  padding: 0.7em;
+}
+
+.barra input[type='button']:hover{
+  color: #FF5E5B;
+  cursor: pointer;
+}
+
+/*First section design*/
+.titulo{
+  background-image: url("/img/hands.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+  text-align: center;
+  text-shadow: 0px 2px 3px rgba(0,0,0,0.4);
+}
+
+.titulo h1{
+  font-size: 8em;
+  letter-spacing: 0.03em;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  margin: 0;
+}
+
+.titulo p{
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.titulo .boton_inicial{
+  margin-top: 2rem;
+}
+
+/*primer grid area*/
+.about_us{
+  background-color: rgb(24, 171, 179);
+  color: #EEF0F2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  "aboutus imagen1";
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.article1{
+  grid-area: aboutus;
+  padding-left: 5em;
+  padding-right: 3em;
+  line-height: 1.6em;
+  text-align: justify;
+}
+
+.imagen1{
+  grid-area: imagen1;
+  margin: auto;
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+.files{
+  width: 90%;
+  margin-left: 5%;
+}
+
+.article1 h2{
+  font-size: 3rem;
+  letter-spacing: 0.02em;
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+.article1 hr{
+  border: 5px solid #FF5E5B;
+}
+
+/*segundo grid area*/
+.area4{
+  background-color: #EEF0F2;
+  color: #333333;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  "article2 article3"
+  "article4 article5";
+  padding: 3rem;
+  grid-gap: 1.5em;
+  text-align: justify;
+}
+
+.article2{
+  grid-area: article2;
+}
+
+.article3{
+  grid-area: article3;
+}
+
+.article4{
+  grid-area: article4;
+}
+
+.article5{
+  grid-area: article5;
+}
+
+.area4 img{
+  width: 100%;
+  height: 20rem;
+  border-radius: 5px;
+}
+
+.area4 article{
+  padding: 1em;
+}
+
+.area4 h2{
+  font-size: 2em;
+}
+
+.area4 p{
+  line-height: 1.6em;
+}
+
+/*footer design*/
+.final{
+  background-color: #333333;
+  color: #EEF0F2;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  text-align: center;
+}
+
+.final a{
+  color: #EEF0F2;
+  text-decoration: none;
+}
+
+.final a:hover{
+  color: #11A5AD;
+}
+
+.icons a{
+  padding: 0.7em;
+}
+
+/*Button decoration*/
+.boton_inicial{
+  color: #EEF0F2;
+  background-color: #FF5E5B;
+  border: 1px #FF5E5B solid;
+  border-radius: 20px;
+  padding: 0.7rem 3rem;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.boton_inicial:hover{
+  color: #FF5E5B;
+  background-color: #090302;
+  border: 1px #090302 solid;
+  cursor: pointer;
+}
+
+/*For responsive website*/
+@media only screen and (max-width: 767px) {
+  .titulo h1 {
+      font-size: 80px;
+  }
+}
+
+@media only screen and (max-width: 767px){
+  .titulo p {
+      font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 767px){
+  .about_us{
+      background-color: rgb(24, 171, 179);
+      color: #EEF0F2;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+      "aboutus"
+      "imagen1";
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+  }
+}
+
+@media only screen and (max-width: 767px){
+  .area4{
+      background-color: #EEF0F2;
+      color: #333333;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+      "article2"
+      "article3"
+      "article4"
+      "article5";
+      padding: 3rem;
+      grid-gap: 1.5em;
+      text-align: justify;
+  }
+}
+

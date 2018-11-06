@@ -3,22 +3,32 @@ extends layout
 include nav/indexNav
 
 block content  
-    article(class='aboutUs', id='aU')
-        h1(id='aboutUs', class='indexHeader') About Us
-        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus sunt ad accusantium veniam? Accusamus autem impedit aperiam repudiandae! Tenetur autem aut ab earum repellat tempora. Tempora ea eos recusandae nemo?
-        a(href='#aU' id='aboutImg')
-            img(src='/img/repotgray.png', alt='repotgray.png')
-    article(class='premiumA', id='pA')
-        h1(id='premium', class='indexHeader') Become a premium user!
-        P Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa reiciendis, aliquid nemo laboriosam, explicabo maiores eaque, veritatis recusandae totam neque nihil aspernatur repellat quos libero voluptatibus. Corrupti voluptatum omnis optio.
-    article(class='Misc')
-        ul(class='links')  
-            li
-                a(href='/login') Log In
-            li
-                a(href='/signin') Sign In
-        ul(class='social')
-            li  facebook
-            li  twitter
-            li  instragram
-            li  youtube
+    section(class="titulo")
+        h1 Data Cloud
+        p Save, archive and organize all your files.
+        input(type='button', value='Start now', class='boton_inicial', onclick="window.location.href='/signin'")
+    section(class="about_us")
+        article(class="article1")
+            h2 About us
+            hr
+            p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia, accusantium, omnis officia facere, accusamus voluptas neque illo obcaecati tempore eius quod voluptates soluta dolor atque? Consectetur suscipit provident dolorem. Tempore, incidunt magni similique tempora aspernatur quia delectus explicabo! Sit blanditiis molestias incidunt adipisci in libero aliquam? Quas tempora est vero voluptatibus similique, fugiat impedit odio sed ullam odit nobis!
+            p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia, accusantium, omnis officia facere, accusamus voluptas neque illo obcaecati tempore eius quod voluptates soluta dolor atque? Consectetur suscipit provident dolorem. Tempore, incidunt magni similique tempora aspernatur quia delectus explicabo! Sit blanditiis molestias incidunt adipisci in libero aliquam? Quas tempora est vero voluptatibus similique, fugiat impedit odio sed ullam odit nobis!
+        div(class="imagen1")
+            img(src="/img/organized2.jpg", alt="files", class="files")
+    section(class="area4")
+        article(class="article2")
+            img(src="/img/piles.jpg", alt="piles")
+            h2 Benefits
+            p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, minima esse aut eius atque aperiam, omnis fugiat natus, aliquam veritatis sint deserunt architecto officia sunt sed impedit facere eaque! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, minima esse aut eius atque aperiam, omnis fugiat natus, aliquam veritatis sint deserunt architecto officia sunt sed impedit facere eaque!
+        article(class="article3")
+            img(src="/img/books.jpg", alt="piles")
+            h2 How to use
+            p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, minima esse aut eius atque aperiam, omnis fugiat natus, aliquam veritatis sint deserunt architecto officia sunt sed impedit facere eaque! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, minima esse aut eius atque aperiam, omnis fugiat natus, aliquam veritatis sint deserunt architecto officia sunt sed impedit facere eaque!
+        article(class="article4")
+            img(src="/img/files.jpg", alt="piles")
+            h2 Keep yourself organized
+            p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, minima esse aut eius atque aperiam, omnis fugiat natus, aliquam veritatis sint deserunt architecto officia sunt sed impedit facere eaque! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, minima esse aut eius atque aperiam, omnis fugiat natus, aliquam veritatis sint deserunt architecto officia sunt sed impedit facere eaque!
+        article(class="article5")
+            img(src="/img/books2.jpg", alt="piles")
+            h2 News from us
+            p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, minima esse aut eius atque aperiam, omnis fugiat natus, aliquam veritatis sint deserunt architecto officia sunt sed impedit facere eaque! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, minima esse aut eius atque aperiam, omnis fugiat natus, aliquam veritatis sint deserunt architecto officia sunt sed impedit facere eaque!
