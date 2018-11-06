@@ -164,11 +164,38 @@ body{
 
 /*settings design*/
 .inside_settings {
-  
+  width: 40%;
+  background-color: #333333;
+  margin: 3rem auto;
+  padding: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .inside_settings img{
   width: 100px;
+}
+
+.inside_settings ul{
+  padding: 2rem;
+}
+
+.inside_settings li{
+  list-style: none;
+  padding: 0.6rem;
+  text-align: center;
+}
+
+.inside_settings a{
+  text-decoration: none;
+  color: #EEF0F2;
+}
+
+.inside_settings a:hover{
+  cursor: pointer;
+  color: #FF5E5B;
 }
 
 /*footer design*/
