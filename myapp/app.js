@@ -24,15 +24,17 @@ var signinRouter = require('./routes/signin');
 var settingsRouter = require('./routes/settings');
 var historyRouter = require('./routes/history');
 
-var app = express();
+//var app = express();
 
 mongoose.Promise = global.Promise;
 
 mongoose.connect('mongodb://localhost/myapp', {
     useNewUrlParser: true
-  })
-.then(() => console.log('connection succesful'))
-.catch((err) => console.error(err));
+})
+  .then(() => console.log('connection succesful'))
+  .catch((err) => console.error(err));
+
+var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

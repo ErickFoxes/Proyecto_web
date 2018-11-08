@@ -24,7 +24,7 @@ userController.doRegister = function (req, res) {
             name: req.body.name
         }), req.body.password, function (err, user) {
             if (err) {
-                return res.render('auth/register', {
+                return res.render('auth/signin', {
                 user: req.body.username
                 });
             }   

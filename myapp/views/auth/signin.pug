@@ -15,7 +15,7 @@ block content
         label(for='passwordConfirmed') Confirm password
         input(type='password', name='passwordConfirmed')
         label(for='email') E-mail
-        input(type='text', name='email')
+        input(type='email', name='email' pattern='.+@globex.com' size='30' required)
         label(for='gender') Gender
         select(name='Gender')
             option(value='Female') Female
