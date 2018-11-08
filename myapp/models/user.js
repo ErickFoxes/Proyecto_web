@@ -13,6 +13,12 @@ let UserSchema = new Schema({
     gender: String, 
     age: Number,
     country: String
+}, 
+{
+    timestamps: {
+        createdAt: 'created_at',
+        updatedAt: 'updated_at'
+    }
 });
 
 UserSchema.plugin(passportLocalMongoose);
