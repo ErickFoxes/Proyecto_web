@@ -238,6 +238,71 @@ body{
   cursor: pointer;
 }
 
+.login{
+  padding: 4em 8em;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+  "barra"
+  "text1"
+  "username"
+  "text1"
+  "password"
+  "boton"
+  "footer";
+}
+.barra-login{
+  grid-area: barra;
+  margin: 0em 0em 2em;
+  color:#11A5AD;
+  border: 2px solid;
+  border-radius: 2px;  
+}
+.text-user{
+  grid-area: text1;
+}
+.text-pass{
+  grid-area: text2;
+}
+.textfield-user{
+  grid-area: username;
+}
+.textfield-pass{
+  grid-area: password;
+}
+.boton-log-in{
+  grid-area: boton;
+  border:none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  background: #FF5E5B;
+  color: #EEF0F2;
+  margin: 15px 0px;
+}
+.boton-log-in:hover{
+  background:#11A5AD;
+  color: #EEF0F2;
+}
+.crear-cuenta{
+  grid-area: footer;
+}
+.textfield-1{
+  width: 99%;
+  margin: 7px 0;
+  padding: 11px 15px;
+  background-color: rgb(233, 233, 233);
+  border-radius: 5px;
+  border:none;
+}
+.label-text{
+  color:#11A5AD;
+}
+.titulo-login{
+  font-size: 1.5em;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  color:#323232;
+}
+
 /*For responsive website*/
 @media only screen and (max-width: 767px) {
   .titulo h1 {

@@ -6,8 +6,26 @@ block content
     form(action='/signin' method='post')
         label(for='username') Username
         input#username(type='text', name='username' value=user?user.username:'')
+        label(for='username') First name
+        input(type='text', name='firstname')
+        label(for='username') Last name
+        input(type='text', name='lastname')
         label(for='password') Password
         input#password(type='password', name='password')
+        label(for='passwordConfirmed') Confirm password
+        input(type='password', name='passwordConfirmed')
+        label(for='email') E-mail
+        input(type='text', name='email')
+        label(for='gender') Gender
+        select(name='Gender')
+            option(value='Female') Female
+            option(value='Male') Male
+            option(value='Other') Other
+        label(for='Age') Age
+        input(type='text', name='Age')
+        label(for='country') Country
+        input(type='text', name='country')
+
         input(type='submit', value='Sign Up')
     h3(class='haveAccount') Do you already have an account? 
     a(href='/login') Log In now  

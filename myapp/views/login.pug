@@ -3,11 +3,15 @@ extends layout
 include nav/logInNav
 
 block content    
-  form(action='/login' method='post')
-    label(for='username') Username
-    input#username(type='text', name='username')
-    label(for='password') Password
-    input#password(type='password', name='password')
-    input(type='submit', value='Log In')
-  h3(class='dontHaveA') You still do not have an account? Sign up free! 
-    a(href='/signin') Sign up for free
+  section(class='login')
+    form(action='/login' method='post')
+      h2(class='titulo-login') LOGIN
+      hr(class='barra-login')
+      label(for='username', class='label-text text-user') Username:
+      input#username(type='text', name='username', class='textfield-1 textfield-user')
+      label(for='password', class='label-text text-pass') Password:
+      input#password(type='password', name='password', class='textfield-1 textfield-pass')
+      input(type='submit', value='Log In',class='boton-log-in')
+      article(class='crear-cuenta')
+        h3(class='dontHaveA') You still do not have an account? Sign up free! 
+          a(href='/signin') Sign up for free
