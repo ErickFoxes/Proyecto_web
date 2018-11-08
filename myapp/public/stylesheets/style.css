@@ -258,6 +258,13 @@ body{
   border: 2px solid;
   border-radius: 2px;  
 }
+
+.barra-login-account{
+  margin: 0em 0em 2em;
+  color:#FF5E5B;
+  border: 2px solid;
+  border-radius: 2px;
+}
 .text-user{
   grid-area: text1;
 }
@@ -270,7 +277,7 @@ body{
 .textfield-pass{
   grid-area: password;
 }
-.boton-log-in{
+.boton-rosa-azul{
   grid-area: boton;
   border:none;
   border-radius: 5px;
@@ -279,8 +286,21 @@ body{
   color: #EEF0F2;
   margin: 15px 0px;
 }
-.boton-log-in:hover{
+.boton-rosa-azul:hover{
   background:#11A5AD;
+  color: #EEF0F2;
+}
+.boton-azul-rosa{
+  grid-area: boton;
+  border:none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  background: #11A5AD;
+  color: #EEF0F2;
+  margin: 15px 0px;
+}
+.boton-azul-rosa:hover{
+  background:#FF5E5B;
   color: #EEF0F2;
 }
 .crear-cuenta{
@@ -297,11 +317,17 @@ body{
 .label-text{
   color:#11A5AD;
 }
-.titulo-login{
+.h2-login{
   font-size: 1.5em;
   font-family: 'Alegreya Sans SC', sans-serif;
   color:#323232;
 }
+.h3-login{
+  font-size: 1.2em;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  color:#323232;
+}
+
 
 /*For responsive website*/
 @media only screen and (max-width: 767px) {
