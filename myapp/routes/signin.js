@@ -5,4 +5,5 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     res.render('signin', { title: 'Join Us' });
 });
+
 module.exports = router;

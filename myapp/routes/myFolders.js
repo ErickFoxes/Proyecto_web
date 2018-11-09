@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 var express = require('express');
 var router = express.Router();
@@ -17,8 +17,8 @@ router.post('/login', auth.doLogin);
 router.get('/logout', auth.logout);
 
 module.exports = router;
+*/
 
-/*
 var express = require('express');
 var router = express.Router();
 
@@ -28,4 +28,3 @@ router.get('/', function (req, res, next) {
 });
 
 module.exports = router;
-*/

@@ -8,9 +8,9 @@ var userController = {};
 
 userController.home = function (req, res) {
     console.log(req.user);
-    res.render('myFolders', {
+    res.render('index', {
       user: req.user,
-      title: 'My Folders'
+      title: 'DATA CLOUD'
     });
 };
 
