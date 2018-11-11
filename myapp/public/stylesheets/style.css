@@ -115,10 +115,12 @@ body{
   font-size: 3rem;
   letter-spacing: 0.02em;
   font-family: 'Alegreya Sans SC', sans-serif;
+  margin-bottom: 2rem;
 }
 
 .article1 hr{
   border: 5px solid #FF5E5B;
+  margin-bottom: 2rem;
 }
 
 /*segundo grid area*/
@@ -169,6 +171,10 @@ body{
   line-height: 1.6em;
 }
 
+.area4 article img, .area4 article h2{
+  margin-bottom: 1rem;
+}
+
 /*settings design*/
 .inside_settings {
   width: 40%;
@@ -212,11 +218,16 @@ body{
   padding-top: 4rem;
   padding-bottom: 4rem;
   text-align: center;
+  line-height: 1em;
 }
 
 .final a{
   color: #EEF0F2;
   text-decoration: none;
+}
+
+.final p{
+  margin-bottom: 1em;
 }
 
 .final a:hover{
