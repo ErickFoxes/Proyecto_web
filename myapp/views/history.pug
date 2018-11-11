@@ -3,11 +3,13 @@ extends layout
 include nav/sessionNav
 
 block content
-    h2 History
-    div(class='history-block')
-        p(class='document') document
-        p(class='action') action
-        p  at
-        p(class='action-time') action-time
-        p(class='action-date') action-date
-        button(class='delete-history-button') Delete history
+    section(class='historial')
+        h2(class='h2-formulario') HISTORY
+        div(class='history-block')
+            p(class='document') document.docx uploaded at 10:00 pm 13/09/2017
+            a(href="#")
+                i(class="fas fa-times-circle x-red-button")
+        div(class='history-block')
+            p(class='document') document.txt downloaded at 9:00 am 13/09/2017
+            a(href="#")
+                i(class="fas fa-times-circle x-red-button")
