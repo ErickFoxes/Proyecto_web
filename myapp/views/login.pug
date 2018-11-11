@@ -6,14 +6,14 @@ block content
   section(class='login')
     form(action='/login' method='post')
       h2(class='h2-login') LOGIN
-      hr(class='barra-login')
-      label(for='username', class='label-text text-user') Username:
+      hr(class='barra-login-azul')
+      label(for='username', class='label-text-login-signin') Username:
       input#username(type='text', name='username', class='textfield-1 textfield-user')
-      label(for='password', class='label-text text-pass') Password:
+      label(for='password', class='label-text-login-signin') Password:
       input#password(type='password', name='password', class='textfield-1 textfield-pass')
       input(type='submit', value='Log In',class='boton-rosa-azul')
       article(class='crear-cuenta')
         h3(class='h3-login') You still do not have an account?
-        hr(class='barra-login-account') 
+        hr(class='barra-login-rosa') 
         p Sign up for free!
         input(type='button', value='Click here',class='boton-azul-rosa',onclick="window.location.href='/signin'")

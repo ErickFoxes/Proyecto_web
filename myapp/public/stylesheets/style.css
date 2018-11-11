@@ -238,20 +238,11 @@ body{
   cursor: pointer;
 }
 
+/*Login y registro*/
 .login{
   padding: 4em 8em;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: 
-  "barra"
-  "text1"
-  "username"
-  "text1"
-  "password"
-  "boton"
-  "footer";
 }
-.barra-login{
+.barra-login-azul{
   grid-area: barra;
   margin: 0em 0em 2em;
   color:#11A5AD;
@@ -259,23 +250,11 @@ body{
   border-radius: 2px;  
 }
 
-.barra-login-account{
+.barra-login-rosa{
   margin: 0em 0em 2em;
   color:#FF5E5B;
   border: 2px solid;
   border-radius: 2px;
-}
-.text-user{
-  grid-area: text1;
-}
-.text-pass{
-  grid-area: text2;
-}
-.textfield-user{
-  grid-area: username;
-}
-.textfield-pass{
-  grid-area: password;
 }
 .boton-rosa-azul{
   grid-area: boton;
@@ -314,7 +293,31 @@ body{
   border-radius: 5px;
   border:none;
 }
-.label-text{
+.textfield-2{
+  width: 90%;
+  margin: 7px 0;
+  padding: 11px 15px;
+  background-color: rgb(233, 233, 233);
+  border-radius: 5px;
+  border:none;
+}
+.textfield-3{
+  width: 98%;
+  margin: 7px 0;
+  padding: 11px 15px;
+  background-color: rgb(233, 233, 233);
+  border-radius: 5px;
+  border:none;
+}
+.select-1{
+  width: 102%;
+  margin: 7px 0;
+  padding: 12px 15px;
+  background-color: rgb(233, 233, 233);
+  border-radius: 5px;
+  border:none;
+}
+.label-text-login-signin{
   color:#11A5AD;
 }
 .h2-login{
@@ -327,7 +330,40 @@ body{
   font-family: 'Alegreya Sans SC', sans-serif;
   color:#323232;
 }
-
+.barra-singin-azul{
+  grid-area: barra-signin;
+  margin: 0em 0em 2em;
+  color:#11A5AD;
+  border: 2px solid;
+  border-radius: 2px;  
+}
+.barra-singin-rosa{
+  grid-area: barra-signin2;
+  margin: 0em 0em 2em;
+  color:#FF5E5B;
+  border: 2px solid;
+  border-radius: 2px;  
+}
+.seccion-2-textfields{
+  display: grid;
+  grid-template-columns: 52% 48%;
+  grid-template-areas: 
+  "seccion1 seccion2"
+  "seccion3 seccion4";
+}
+.seccion-2-textfields-1{
+  grid-area: seccion1;
+}
+.seccion-2-textfields-2{
+  grid-area: seccion2;
+}
+.seccion-2-textfields-3{
+  grid-area: seccion3;
+}
+.seccion-2-textfields-4{
+  grid-area: seccion4;
+}
+/*Fin del Login y registro*/
 
 /*For responsive website*/
 @media only screen and (max-width: 767px) {
@@ -340,9 +376,6 @@ body{
   .titulo p {
       font-size: 20px;
   }
-}
-
-@media only screen and (max-width: 767px){
   .about_us{
       background-color: rgb(24, 171, 179);
       color: #EEF0F2;
@@ -354,9 +387,6 @@ body{
       padding-top: 7rem;
       padding-bottom: 7rem;
   }
-}
-
-@media only screen and (max-width: 767px){
   .area4{
       background-color: #EEF0F2;
       color: #333333;
@@ -371,5 +401,35 @@ body{
       grid-gap: 1.5em;
       text-align: justify;
   }
+  /*Login y registro*/
+  .login{
+    padding: 2em 5em;
+  }
+  .seccion-2-textfields{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "seccion1"
+    "seccion2"
+    "seccion3"
+    "seccion4";
+  }
+  .textfield-2{
+    width: 99%;
+    margin: 7px 0;
+    padding: 11px 15px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+    border:none;
+  }
+  .textfield-3{
+    width: 99%;
+    margin: 7px 0;
+    padding: 11px 15px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+    border:none;
+  }
+  /*Fin de Login y registro*/
 }
 
