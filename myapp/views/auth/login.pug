@@ -3,18 +3,15 @@ extends ../layout
 include ../nav/logInNav
 
 block content    
-  section(class='login')
-  div(class='alerts')
-      while message = flash.shift()
-        a.alert(class='alert-' + message.type) #{message.message}
-    form(action='/login' method='post')
-      h2(class='titulo-login') LOGIN
-      hr(class='barra-login')
-      label(for='username', class='label-text text-user') Username:
-      input#username(type='text', name='username', class='textfield-1 textfield-user' required)
-      label(for='password', class='label-text text-pass') Password:
-      input#password(type='password', name='password', class='textfield-1 textfield-pass' required pattern="/.{8,}/" title="3 characters minimum")
-      input(type='submit', value='Log In',class='boton-log-in')
-      article(class='crear-cuenta')
-        h3(class='dontHaveA') You still do not have an account? Sign up free! 
-          a(href='/signin') Sign up for free
+  div=err    
+  form(method='POST' action='/users/auth/login')
+    h2(class='titulo-login') LOGIN
+    hr(class='barra-login')
+    label(for='username', class='label-text text-user') Username:
+    input#username(type='text', name='username', class='textfield-1 textfield-user' required)
+    label(for='password', class='label-text text-pass') Password:
+    input#password(type='password', name='password', class='textfield-1 textfield-pass' required pattern="/.{8,}/" title="3 characters minimum")
+    input(type='submit', value='Log In',class='boton-log-in')
+    article(class='crear-cuenta')
+      h3(class='dontHaveA') You still do not have an account? Sign up free! 
+        a(href='/users/signin') Sign up for free

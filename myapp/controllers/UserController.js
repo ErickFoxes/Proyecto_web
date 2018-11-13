@@ -27,7 +27,7 @@ AuthController.store = async function (req, res) {
 
     await User.create(user, (error, user) => {
         if (error)
-            return res.render('login', { err: error, email: user.email });
+            return res.render('login', { err: error, username: user.username });
         else {
             let data = {
                 userId: user._id.toString(),

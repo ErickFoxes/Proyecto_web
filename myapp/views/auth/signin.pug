@@ -3,7 +3,8 @@ extends ../layout
 include ../nav/signInNav
 
 block content
-    form(action='/signin' method='post')
+    div = err
+    form(method='POST' action='/users/auth/signin')
         label(for='username') Username
         input#username(type='text', name='username' value=user?user.username:'')
         label(for='username') First name
@@ -21,11 +22,11 @@ block content
             option(value='Female') Female
             option(value='Male') Male
             option(value='Other') Other
-        label(for='Age') Age
-        input(type='text', name='Age')
+        label(for='birthdate') Age
+        input(type='text', name='birthdate')
         label(for='country') Country
         input(type='text', name='country')
 
         input(type='submit', value='Sign Up')
     h3(class='haveAccount') Do you already have an account? 
-    a(href='/login') Log In now  
+    a(href='/users/login') Log In now  

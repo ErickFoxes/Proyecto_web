@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { mongodb } = require('./keys');
 
-moongose.connect(mongodb.URI, {
+mongoose.connect(mongodb.URI, {
     useNewUrlParser: true,
     useCreateIndex: true
 })
