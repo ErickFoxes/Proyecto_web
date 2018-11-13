@@ -2,9 +2,10 @@ extends layout
 
 include nav/logInNav
 
-block content    
+block content
+  div= err    
   section(class='login')
-    form(action='/login' method='post')
+    form(method='POST' action='/users/login')
       h2(class='h2-login') LOGIN
       hr(class='barra-login-azul')
       label(for='username', class='label-text-login-signin') Username:
@@ -16,4 +17,4 @@ block content
         h3(class='h3-login') You still do not have an account?
         hr(class='barra-login-rosa') 
         p Sign up for free!
-        input(type='button', value='Click here',class='boton-azul-rosa',onclick="window.location.href='/signin'")
+        input(type='button', value='Click here',class='boton-azul-rosa',onclick="window.location.href='/users/signin'")

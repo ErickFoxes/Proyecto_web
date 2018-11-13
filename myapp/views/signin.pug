@@ -3,8 +3,9 @@ extends layout
 include nav/signInNav
 
 block content
+div= err
     section(class='login')
-        form(action='/signin' method='post')
+        form(method='POST' action='/users/signin')
             h2(class='h2-login') SIGN UP
             hr(class='barra-singin-azul')
             label(for='username', class='label-text-login-signin') Username:
@@ -39,4 +40,4 @@ block content
             h3(class='h3-login') Do you already have an account? 
             hr(class='barra-login-rosa') 
             p Log In now  
-            input(type='button', value='Click here',class='boton-azul-rosa',onclick="window.location.href='/login'")
+            input(type='button', value='Click here',class='boton-azul-rosa',onclick="window.location.href='/users/login'")
