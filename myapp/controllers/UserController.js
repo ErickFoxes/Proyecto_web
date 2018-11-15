@@ -60,18 +60,12 @@ AuthController.signin = function (req, res, next) {
     var data = {};
     User.authenticate(req.body.username, req.body.password, (error, user) => {
         if (error || !user) {
-            res.render('signin', { err: error, username: req.body.username });
+            res.render('login', { err: error, username: req.body.username });
         }
         else {
             data.userId = user._id.toString(),
                 data.username = user.username,
-               /* data.givenname = user.givenname,
-                data.lastname = user.lastname,*/
                 data.password = user.password,
-                /*data.email = user.email,
-                data.gender = user.gender,
-                data.age = user.age,
-                data.country = user.country,*/
                 bcrypt.hash(data.userId, 10, function (err, hash) {
                     if (err) {
                         next(err);

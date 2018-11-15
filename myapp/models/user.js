@@ -14,12 +14,12 @@ const UserSchema = new Schema({
     country: { type: String, required: false, unique: false },
 });
 
-UserSchema.statics.authenticate = function (username, password, email,callback) {
-    User.findOne({ username: username }, {email: email})
-        .exec(function (err, user, email) {
+UserSchema.statics.authenticate = function (username, password,callback) {
+    User.findOne({ username: username })
+        .exec(function (err, user) {
             if (err) {
                 return callback(err)
-            } else if (!user || !email) {
+            } else if (!user) {
                 var err = new Error('User not found.');
                 err.status = 401;
                 return callback(err);
