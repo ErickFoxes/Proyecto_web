@@ -16,12 +16,12 @@ AuthController.create = function (req, res, next) {
 AuthController.store = async function (req, res) {
     let user = {
         username: req.body.username,
-        givenname: req.body.givenname,
+        firstname: req.body.firstname,
         lastname: req.body.lastname,
         password: req.body.password,
         email: req.body.email,
-        gender: req.body.gender,
-        birthdate: req.body.birthdate,
+        Gender: req.body.Gender,
+        birthday: req.body.birthday,
         country: req.body.country,
     }
     await User.create(user, (error, user) => {
@@ -31,12 +31,12 @@ AuthController.store = async function (req, res) {
             let data = {
                 userId: user._id.toString(),
                 username: user.username,
-                givenname: user.givenname,
+                firstname: user.firstname,
                 lastname: user.lastname,
                 password: user.password,
                 email: user.email,
-                gender: user.gender,
-                birthdate: user.birthdate,
+                Gender: user.Gender,
+                birthday: user.birthday,
                 country: user.country,
             }
             bcrypt.hash(data.userId, 10, function (err, hash) {
