@@ -7,10 +7,10 @@ const AuthMiddleware = require("../middlewares/AuthMiddleware")
 const User = require("../models/user");
 
 
-router.get('/login', AuthController.create);
-router.post('/login', AuthController.store);
-router.get('/signin', AuthController.login);
-router.post('/signin', AuthController.signin);
+router.get('/signin', AuthController.create);
+router.post('/signin', AuthController.store);
+router.get('/login', AuthController.login);
+router.post('/login', AuthController.signin);
 router.get('/logout', AuthController.logout);
 router.use(AuthMiddleware.isAuthentication);
 router.get('/myFolders', AuthController.myFolders);

@@ -6,28 +6,27 @@ const AuthController = {};
 const bcrypt = require('bcrypt');
 
 AuthController.login = function (req, res, next) {
-    res.render('signin');
+    res.render('login');
 }
 
 AuthController.create = function (req, res, next) {
-    res.render('login')
+    res.render('signin');
 }
 
 AuthController.store = async function (req, res) {
     let user = {
         username: req.body.username,
         givenname: req.body.givenname,
-        lastname: req.body.givenname,
+        lastname: req.body.lastname,
         password: req.body.password,
         email: req.body.email,
         gender: req.body.gender,
         birthdate: req.body.birthdate,
         country: req.body.country,
     }
-
     await User.create(user, (error, user) => {
         if (error)
-            return res.render('login', { err: error, username: user.username });
+            return res.render('signin', { err: error, username: user.username });
         else {
             let data = {
                 userId: user._id.toString(),
@@ -37,7 +36,7 @@ AuthController.store = async function (req, res) {
                 password: user.password,
                 email: user.email,
                 gender: user.gender,
-                age: user.age,
+                birthdate: user.birthdate,
                 country: user.country,
             }
             bcrypt.hash(data.userId, 10, function (err, hash) {
@@ -47,7 +46,7 @@ AuthController.store = async function (req, res) {
                 data.userId = hash;
                 req.session.user = JSON.stringify(data);
                 console.log(req.session.user);
-                return res.redirect('myFolders');
+                return res.redirect('/users/myFolders');
             });
         }
     })
@@ -79,7 +78,7 @@ AuthController.signin = function (req, res, next) {
                     }
                     data.userId = hash;
                     req.session.user = JSON.stringify(data);
-                    return res.redirect('/users/NO/myFolders');
+                    return res.redirect('/users/myFolders');
                 });
         }
     });

@@ -9,7 +9,7 @@ block content
       h2(class='h2-login') LOGIN
       hr(class='barra-login-azul')
       label(for='username', class='label-text-login-signin') Username:
-      input#username(type='text', name='username', class='textfield-1 textfield-user')
+      input#username(type='text', name='username', class='textfield-1 textfield-user' required value=username?username:'')
       label(for='password', class='label-text-login-signin') Password:
       input#password(type='password', name='password', class='textfield-1 textfield-pass')
       input(type='submit', value='Log In',class='boton-rosa-azul')

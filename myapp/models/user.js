@@ -2,7 +2,6 @@
 
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
 const { Schema } = mongoose;
 const UserSchema = new Schema({
     username: { type: String, required: true, unique: true },
@@ -15,12 +14,12 @@ const UserSchema = new Schema({
     country: { type: String, required: false, unique: false },
 });
 
-UserSchema.statics.authenticate = function (username, password, callback) {
-    User.findOne({ username: username })
-        .exec(function (err, user) {
+UserSchema.statics.authenticate = function (username, password, email,callback) {
+    User.findOne({ username: username }, {email: email})
+        .exec(function (err, user, email) {
             if (err) {
                 return callback(err)
-            } else if (!user) {
+            } else if (!user || !email) {
                 var err = new Error('User not found.');
                 err.status = 401;
                 return callback(err);
@@ -29,7 +28,7 @@ UserSchema.statics.authenticate = function (username, password, callback) {
                 if (result === true) {
                     return callback(null, user);
                 } else {
-                    return callback(new Error('User or Password are wrong'));
+                    return callback(new Error('User, e-mail or password are wrong'));
                 }
             })
         });
@@ -47,3 +46,5 @@ UserSchema.pre('save', function (next) {
 });
 
 let User = mongoose.model('users', UserSchema);
+
+module.exports = User;
