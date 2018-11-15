@@ -33,7 +33,7 @@ AuthController.store = async function (req, res) {
                 userId: user._id.toString(),
                 username: user.username,
                 givenname: user.givenname,
-                lastname: user.givenname,
+                lastname: user.lastname,
                 password: user.password,
                 email: user.email,
                 gender: user.gender,
@@ -66,15 +66,21 @@ AuthController.signin = function (req, res, next) {
         else {
             data.userId = user._id.toString(),
                 data.username = user.username,
-                data.password = user.password
-            bcrypt.hash(data.userId, 10, function (err, hash) {
-                if (err) {
-                    next(err);
-                }
-                data.userId = hash;
-                req.session.user = JSON.stringify(data);
-                return res.redirect('myFolders');
-            });
+               /* data.givenname = user.givenname,
+                data.lastname = user.lastname,*/
+                data.password = user.password,
+                /*data.email = user.email,
+                data.gender = user.gender,
+                data.age = user.age,
+                data.country = user.country,*/
+                bcrypt.hash(data.userId, 10, function (err, hash) {
+                    if (err) {
+                        next(err);
+                    }
+                    data.userId = hash;
+                    req.session.user = JSON.stringify(data);
+                    return res.redirect('/users/NO/myFolders');
+                });
         }
     });
 };

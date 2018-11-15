@@ -3,41 +3,41 @@ extends layout
 include nav/signInNav
 
 block content
-div= err
-    section(class='login')
-        form(method='POST' action='/users/signin')
-            h2(class='h2-login') SIGN UP
-            hr(class='barra-singin-azul')
-            label(for='username', class='label-text-login-signin') Username:
-            input#username(type='text', name='username' value=user?user.username:'', class='textfield-1')
-            div(class='seccion-2-textfields')
-                div(class='seccion-2-textfields-1')
-                    label(for='username', class='label-text-login-signin') First name:
-                    input(type='text', name='firstname', class='textfield-2')
-                div(class='seccion-2-textfields-2')
-                    label(for='username', class='label-text-login-signin') Last name:
-                    input(type='text', name='lastname', class='textfield-3')
-                div(class='seccion-2-textfields-3')
-                    label(for='password', class='label-text-login-signin') Password:
-                    input#password(type='password', name='password', class='textfield-2')
-                div(class='seccion-2-textfields-4')
-                    label(for='passwordConfirmed', class='label-text-login-signin') Confirm password:
-                    input(type='password', name='passwordConfirmed', class='textfield-3')
-            label(for='email', class='label-text-login-signin') E-mail:
-            input(type='text', name='email', class='textfield-1')
-            label(for='gender', class='label-text-login-signin') Gender:
-            select(name='Gender',class='select-1')
-                option(value='Female') Female
-                option(value='Male') Male
-                option(value='Other') Other
-            label(for='birthday', class='label-text-login-signin') Birthday:
-            input(type='date', name='birthday', class='textfield-1')
-            label(for='country', class='label-text-login-signin') Country:
-            input(type='text', name='country', class='textfield-1')
+    div= err
+        section(class='login')
+            form(method='POST' action='/users/signin')
+                h2(class='h2-login') SIGN UP
+                hr(class='barra-singin-azul')
+                label(for='username', class='label-text-login-signin') Username:
+                input#username(type='text', name='username' value=user?user.username:'', class='textfield-1')
+                div(class='seccion-2-textfields')
+                    div(class='seccion-2-textfields-1')
+                        label(for='username', class='label-text-login-signin') First name:
+                        input(type='text', name='firstname', class='textfield-2')
+                    div(class='seccion-2-textfields-2')
+                        label(for='username', class='label-text-login-signin') Last name:
+                        input(type='text', name='lastname', class='textfield-3')
+                    div(class='seccion-2-textfields-3')
+                        label(for='password', class='label-text-login-signin') Password:
+                        input#password(type='password', name='password', class='textfield-2')
+                    div(class='seccion-2-textfields-4')
+                        label(for='passwordConfirmed', class='label-text-login-signin') Confirm password:
+                        input(type='password', name='passwordConfirmed', class='textfield-3')
+                label(for='email', class='label-text-login-signin') E-mail:
+                input(type='text', name='email', class='textfield-1')
+                label(for='gender', class='label-text-login-signin') Gender:
+                select(name='Gender',class='select-1')
+                    option(value='Female') Female
+                    option(value='Male') Male
+                    option(value='Other') Other
+                label(for='birthday', class='label-text-login-signin') Birthday:
+                input(type='date', name='birthday', class='textfield-1')
+                label(for='country', class='label-text-login-signin') Country:
+                input(type='text', name='country', class='textfield-1')
 
-            input(type='submit', value='Sign Up',class='boton-rosa-azul')
-        article(class='crear-cuenta')
-            h3(class='h3-login') Do you already have an account? 
-            hr(class='barra-login-rosa') 
-            p Log In now  
-            input(type='button', value='Click here',class='boton-azul-rosa',onclick="window.location.href='/users/login'")
+                input(type='submit', value='Sign Up',class='boton-rosa-azul')
+            article(class='crear-cuenta')
+                h3(class='h3-login') Do you already have an account? 
+                hr(class='barra-login-rosa') 
+                p Log In now  
+                input(type='button', value='Click here',class='boton-azul-rosa',onclick="window.location.href='/users/login'")
