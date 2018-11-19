@@ -56,6 +56,14 @@ AuthController.myFolders = function (req, res) {
     return res.render('myFolders');
 }
 
+AuthController.settings = function (req, res) {
+    return res.render('settings');
+}
+
+AuthController.history = function (req, res) {
+    return res.render('history');
+}
+
 AuthController.signin = function (req, res, next) {
     var data = {};
     User.authenticate(req.body.username, req.body.password, (error, user) => {

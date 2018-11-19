@@ -14,5 +14,7 @@ router.post('/login', AuthController.signin);
 router.get('/logout', AuthController.logout);
 router.use(AuthMiddleware.isAuthentication);
 router.get('/myFolders', AuthController.myFolders);
+router.get('/settings', AuthController.settings);
+router.get('/history', AuthController.history);
 
 module.exports = router;
