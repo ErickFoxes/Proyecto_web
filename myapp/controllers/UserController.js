@@ -85,7 +85,36 @@ AuthController.signin = function (req, res, next) {
         }
     });
 };
-
+/*
+AuthController.update = function (req, res) {
+    if (!req.body.content) {
+        return res.status(400).send({
+            message: "Note content can not be empty"
+        });
+    }
+    User.findByIdAndUpdate(req.data.userId, {
+        title: req.body.title || "Untitled Note",
+        content: req.body.content
+    }, { new: true })
+        .then(note => {
+            if (!note) {
+                return res.status(404).send({
+                    message: "User not found with id " + req.params.noteId
+                });
+            }
+            res.send(note);
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "Note not found with id " + req.params.noteId
+                });
+            }
+            return res.status(500).send({
+                message: "Error updating note with id " + req.params.noteId
+            });
+        });
+};
+*/
 AuthController.logout = function (req, res, next) {
     if (req.session) {
         req.session.destroy(function (err) {
