@@ -16,6 +16,7 @@ router.use(AuthMiddleware.isAuthentication);
 router.get('/myFolders', AuthController.myFolders);
 router.get('/settings', AuthController.settings);
 router.get('/history', AuthController.history);
-router.remove('/:id', AuthController.remove);
-router.put('/:id', AuthController.put);
+router.delete('/delete', AuthController.delete);
+//router.put('/:id', AuthController.put);
+
 module.exports = router;
