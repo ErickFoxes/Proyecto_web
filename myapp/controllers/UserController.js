@@ -86,35 +86,71 @@ AuthController.signin = function (req, res, next) {
     });
 };
 /*
-AuthController.update = function (req, res) {
-    if (!req.body.content) {
-        return res.status(400).send({
-            message: "Note content can not be empty"
+AuthController.delete = function (req, res) {
+    if (req.params.id) {
+        User.findByIdAndRemove(req.params.id, function (err, user) {
+            if (err) {
+                res.status(500);
+                res.json({
+                    status: 500,
+                    success: false,
+                    err
+                });
+            } else {
+                res.json({
+                    success: true,
+                    delete: user
+                });
+            }
+        });
+    } else {
+
+        res.status(400);
+        res.json({
+            status: 400,
+            success: false
         });
     }
-    User.findByIdAndUpdate(req.data.userId, {
-        title: req.body.title || "Untitled Note",
-        content: req.body.content
-    }, { new: true })
-        .then(note => {
-            if (!note) {
-                return res.status(404).send({
-                    message: "User not found with id " + req.params.noteId
-                });
-            }
-            res.send(note);
-        }).catch(err => {
-            if (err.kind === 'ObjectId') {
-                return res.status(404).send({
-                    message: "Note not found with id " + req.params.noteId
-                });
-            }
-            return res.status(500).send({
-                message: "Error updating note with id " + req.params.noteId
-            });
-        });
 };
 */
+AuthController.remove({ _id: req.body.id }, function (err) {
+    if (!err) {
+        message.type = 'notification!';
+    }
+    else {
+        message.type = 'error';
+    }
+});
+
+AuthController.put = function (req, res) {
+    if (req.params.id) {
+        User.findByIdAndUpdate(req.params.id, {
+            username: req.body.username,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            password: req.body.password,
+            email: req.body.email,
+            Gender: req.body.Gender,
+            birthday: req.body.birthday,
+            country: req.body.country,
+        }, function (err, updated) {
+            if (err) {
+                res.json({
+                    status: 500,
+                    success: false,
+                    errs
+                });
+            } else {
+                res.json({
+                    status: 200,
+                    success: true,
+                    updated
+                })
+            }
+        });
+    }
+};
+
 AuthController.logout = function (req, res, next) {
     if (req.session) {
         req.session.destroy(function (err) {
@@ -126,6 +162,6 @@ AuthController.logout = function (req, res, next) {
             }
         });
     }
-}
+};
 
 module.exports = AuthController;
