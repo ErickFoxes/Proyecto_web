@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const { Schema } = mongoose;
 const UserSchema = new Schema({
-    username: { type: String, required: true, unique: true },
+    username: { type: String, required: true, unique: true, index: true},
     firstname: { type: String, required: true, unique: false },
     lastname: { type: String, required: true, unique: false },
     password: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true, index: true},
     Gender: { type: String, required: true, unique: false },
     birthday: { type: Date, required: true, unique: false },
     country: { type: String, required: false, unique: false },

@@ -86,6 +86,35 @@ AuthController.signin = function (req, res, next) {
     });
 };
 
+AuthController.put = function(req,res){
+    if (req.params.id) {
+        User.findByIdAndUpdate(req.params.id,{
+            username: req.body.username,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            password: req.body.password,
+            email: req.body.email,
+            Gender: req.body.Gender,
+            birthday: req.body.birthday,
+            country: req.body.country,
+        },function(err,updated){
+            if (err){
+                res.json({
+                    status: 500,
+                    success: false,
+                    errs
+                });
+            } else{
+                res.json({
+                    status: 200,
+                    success: true,
+                    updated
+                })
+            }
+        });
+    }
+};
+
 AuthController.delete = function (req, res) {
     if (req.params.id) {
         User.findByIdAndRemove(req.params.id, function (err, user) {
