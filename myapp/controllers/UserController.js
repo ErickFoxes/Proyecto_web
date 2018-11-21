@@ -86,93 +86,32 @@ AuthController.signin = function (req, res, next) {
     });
 };
 
-AuthController.delete = function (req, res, next) {
-    //var data = {};
-    if (req.body._id) {
-        User.authenticate(req.body.username, req.body.password, (error, user) => {
-            if (error || !user) {
-                //res.render('delete', { err: error, username: req.body.username });
-                console.log('la regaste we!');
-            }
-            else {
-                User.findByIdAndRemove(user._id.toString(), function (err, user) {
-                    if (err) {
-                        res.status(500);
-                        res.json({
-                            status: 500,
-                            success: false,
-                            err
-                        });
-                    } else {
-                        res.json({
-                            success: true,
-                            delete: user
-                        });
-                        res.redirect('/');
-                    }
-                })
-                /*data.userId = user._id.toString(),
-                    data.username = user.username,
-                    data.password = user.password,
-                    bcrypt.hash(data.userId, 10, function (err, hash) {
-                        if (err) {
-                            next(err);
-                        }
-                        data.userId = hash;
-                        req.session.user = JSON.stringify(data);
-                        return res.redirect('/users/myFolders');
-                    });*/
+AuthController.delete = function (req, res) {
+    if (req.params.id) {
+        User.findByIdAndRemove(req.params.id, function (err, user) {
+            if (err) {
+                res.status(500);
+                res.json({
+                    status: 500,
+                    success: false,
+                    err
+                });
+            } else {
+                res.json({
+                    success: true,
+                    delete: user
+                });
             }
         });
     } else {
+
         res.status(400);
         res.json({
             status: 400,
             success: false
         });
     }
-
 };
-
-/*
-AuthController.remove({ _id: req.body.id }, function (err) {
-    if (!err) {
-        message.type = 'The user has been deleted!';
-        res.redirect('/');
-    }
-    else {
-        message.type = 'error';
-    }
-});
-
-AuthController.put = function (req, res) {
-    if (req.params.id) {
-        User.findByIdAndUpdate(req.params.id, {
-            username: req.body.username,
-            firstname: req.body.firstname,
-            lastname: req.body.lastname,
-            password: req.body.password,
-            email: req.body.email,
-            Gender: req.body.Gender,
-            birthday: req.body.birthday,
-            country: req.body.country,
-        }, function (err, updated) {
-            if (err) {
-                res.json({
-                    status: 500,
-                    success: false,
-                    errs
-                });
-            } else {
-                res.json({
-                    status: 200,
-                    success: true,
-                    updated
-                })
-            }
-        });
-    }
-};*/
 
 AuthController.logout = function (req, res, next) {
     if (req.session) {
