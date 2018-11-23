@@ -107,16 +107,19 @@ UserController.update = function (req, res) {
     });
 };
 
-UserController.delete = function (req, res) {
-    User.findByIdAndRemove(req.params.id, function (err, eliminado) {
-        if (err) {
-            res.status(500);
-            res.json({ code: 500, err });
-        } else {
-            res.json({ ok: true, eliminado });
-            res.redirect('/');
-        }
-    });
+UserController.delete = function (req, res, next) {
+    if (req.session) {
+        User.findByIdAndRemove(req.params.id, function (err, eliminado) {
+            if (err) {
+                next(err);/*
+                res.status(500);
+                res.json({ code: 500, err });*/
+            } else {
+                res.json({ ok: true, eliminado });
+                res.redirect('/');
+            }
+        });
+    }
 };
 
 UserController.logout = function (req, res, next) {

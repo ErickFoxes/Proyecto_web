@@ -28,7 +28,7 @@ UserSchema.statics.authenticate = function (username, password,callback) {
                 if (result === true) {
                     return callback(null, user);
                 } else {
-                    return callback(new Error('User, e-mail or password are wrong'));
+                    return callback(new Error('User, username or password are wrong'));
                 }
             })
         });
