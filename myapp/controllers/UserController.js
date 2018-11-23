@@ -2,18 +2,18 @@
 
 const mongoose = require('mongoose');
 const User = require("../models/user");
-const AuthController = {};
+const UserController = {};
 const bcrypt = require('bcrypt');
 
-AuthController.login = function (req, res, next) {
+UserController.login = function (req, res, next) {
     res.render('login');
 }
 
-AuthController.create = function (req, res, next) {
+UserController.create = function (req, res, next) {
     res.render('signin');
 }
 
-AuthController.store = async function (req, res) {
+UserController.store = async function (req, res) {
     let user = {
         username: req.body.username,
         firstname: req.body.firstname,
@@ -52,19 +52,19 @@ AuthController.store = async function (req, res) {
     })
 };
 
-AuthController.myFolders = function (req, res) {
+UserController.myFolders = function (req, res) {
     return res.render('myFolders');
 }
 
-AuthController.settings = function (req, res) {
+UserController.settings = function (req, res) {
     return res.render('settings');
 }
 
-AuthController.history = function (req, res) {
+UserController.history = function (req, res) {
     return res.render('history');
 }
 
-AuthController.signin = function (req, res, next) {
+UserController.signin = function (req, res, next) {
     var data = {};
     User.authenticate(req.body.username, req.body.password, (error, user) => {
         if (error || !user) {
@@ -86,7 +86,56 @@ AuthController.signin = function (req, res, next) {
     });
 };
 
-AuthController.put = function(req,res){
+UserController.update = function (req, res) {
+    let update = {
+        username: req.body.username,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        password: req.body.password,
+        email: req.body.email,
+        Gender: req.body.Gender,
+        birthday: req.body.birthday,
+        country: req.body.country,
+    };
+    postModel.findByIdAndUpdate(req.params.id, update, function (err, old) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else {
+            res.json({ ok: true, old, update });
+        }
+    });
+};
+
+UserController.delete = function (req, res) {
+    User.findByIdAndRemove(req.params.id, function (err, eliminado) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else {
+            res.json({ ok: true, eliminado });
+            res.redirect('/');
+        }
+    });
+};
+
+UserController.logout = function (req, res, next) {
+    if (req.session) {
+        req.session.destroy(function (err) {
+            if (err) {
+                next(err);
+            }
+            else {
+                res.redirect('/');
+            }
+        });
+    }
+};
+
+module.exports = UserController;
+/**** Version antigua del controlador para actualizar.. ***********/
+/*
+UserController.update = function(req,res){
     if (req.params.id) {
         User.findByIdAndUpdate(req.params.id,{
             username: req.body.username,
@@ -114,8 +163,10 @@ AuthController.put = function(req,res){
         });
     }
 };
-
-AuthController.delete = function (req, res) {
+*/
+/*************Version antigua del controlador delete ********************/
+/* 
+UserController.delete = function (req, res) {
     if (req.params.id) {
         User.findByIdAndRemove(req.params.id, function (err, user) {
             if (err) {
@@ -142,17 +193,4 @@ AuthController.delete = function (req, res) {
     }
 };
 
-AuthController.logout = function (req, res, next) {
-    if (req.session) {
-        req.session.destroy(function (err) {
-            if (err) {
-                next(err);
-            }
-            else {
-                res.redirect('/');
-            }
-        });
-    }
-};
-
-module.exports = AuthController;
+*/

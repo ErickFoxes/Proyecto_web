@@ -2,21 +2,21 @@
 
 var express = require('express');
 var router = express.Router();
-const AuthController = require("../controllers/UserController");
+const UserController = require("../controllers/UserController");
 const AuthMiddleware = require("../middlewares/AuthMiddleware")
 const User = require("../models/user");
 
 
-router.get('/signin', AuthController.create);
-router.post('/signin', AuthController.store);
-router.get('/login', AuthController.login);
-router.post('/login', AuthController.signin);
-router.get('/logout', AuthController.logout);
+router.get('/signin', UserController.create);
+router.post('/signin', UserController.store);
+router.get('/login', UserController.login);
+router.post('/login', UserController.signin);
+router.get('/logout', UserController.logout);
 router.use(AuthMiddleware.isAuthentication);
-router.get('/myFolders', AuthController.myFolders);
-router.get('/settings', AuthController.settings);
-router.get('/history', AuthController.history);
-router.put('/:id', AuthController.put);
-router.delete('/:id', AuthController.delete);
+router.get('/myFolders', UserController.myFolders);
+router.get('/settings', UserController.settings);
+router.get('/history', UserController.history);
+router.put('/:id', UserController.update);
+router.delete('/:id', UserController.delete);
 
 module.exports = router;
