@@ -64,7 +64,7 @@ UserController.history = function (req, res) {
     return res.render('history');
 }
 
-UserController.signin = function (req, res, next) {
+UserController.login = function (req, res, next) {
     var data = {};
     User.authenticate(req.body.username, req.body.password, (error, user) => {
         if (error || !user) {
@@ -97,7 +97,7 @@ UserController.update = function (req, res) {
         birthday: req.body.birthday,
         country: req.body.country,
     };
-    postModel.findByIdAndUpdate(req.params.id, update, function (err, old) {
+    User.findByIdAndUpdate(req.params.id, update, function (err, old) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
@@ -109,16 +109,18 @@ UserController.update = function (req, res) {
 
 UserController.delete = function (req, res, next) {
     if (req.session) {
-        User.findByIdAndRemove(req.params.id, function (err, eliminado) {
+        User.findByIdAndRemove(req.params.id /*5bf5d08677ec1b0bb76b68f4*/, function (err, eliminado) {
             if (err) {
-                next(err);/*
+               // next(err);/*
                 res.status(500);
-                res.json({ code: 500, err });*/
+                res.json({ code: 500, err });
             } else {
                 res.json({ ok: true, eliminado });
-                res.redirect('/');
+                //res.redirect('/');
             }
         });
+    } else {
+        
     }
 };
 

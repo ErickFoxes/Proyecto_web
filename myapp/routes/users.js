@@ -10,7 +10,7 @@ const User = require("../models/user");
 router.get('/signin', UserController.create);
 router.post('/signin', UserController.store);
 router.get('/login', UserController.login);
-router.post('/login', UserController.signin);
+router.post('/login', UserController.login);
 router.get('/logout', UserController.logout);
 router.use(AuthMiddleware.isAuthentication);
 router.get('/myFolders', UserController.myFolders);

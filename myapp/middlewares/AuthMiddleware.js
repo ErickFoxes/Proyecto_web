@@ -17,7 +17,7 @@ AuthMiddleware.isAuthentication = function (req, res, next) {
                     return res.redirect('/');
                 } else {
                     bcrypt.compare(data.userId, user._id.toString(), function (err, result) {
-                        console.log("llego aca", data.userId);
+                        //console.log("llego aca", data.userId);
                         if (result == true) {
                             return next();
                         } else {
