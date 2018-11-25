@@ -17,10 +17,12 @@
     "mongo-store": "0.0.2",
     "mongoose": "^5.3.8",
     "morgan": "~1.9.0",
+    "multer": "^1.4.1",
     "nodemon": "^1.18.6",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "util": "^0.11.1"
   }
 }

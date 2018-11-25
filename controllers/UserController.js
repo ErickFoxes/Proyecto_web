@@ -5,6 +5,8 @@ const User = require("../models/user");
 const UserController = {};
 const bcrypt = require('bcrypt');
 const fs = require('fs');
+const util = require('util');
+const path = require('path');
 
 UserController.login = function (req, res, next) {
     res.render('login');
@@ -135,22 +137,38 @@ UserController.logout = function (req, res, next) {
         });
     }
 };
-
+/*
 UserController.Uploads = function (req, res) {
-    console.log(req.files);
-    var tmp_path = req.files.photo.path;
-    var target_path = '/img/' + req.files.photo.name;
-    if (req.files.photo.type.indexOf('image') == -1) {
-        res.send('El fichero que deseas subir no es una imagen');
-    } else {
-        fs.rename(tmp_path, target_path, function (err) {
-            if (err) throw err;
-            fs.unlink(tmp_path, function () {
-                if (err) throw err;
-                res.render('myFolders', { message: '/img/' + req.files.photo.name, title: 'Upload a  file' });
-            });
-        });
-    }
+    let EDFile = req.files.file
+    EDFile.mv(`./img/${EDFile.name}`,err => {
+        if(err) return res.status(500).send({ message : err })
+        return res.status(200).send({ message : 'File upload' })
+    })
+};
+*/
+UserController.multerF = function (req, res, next) {
+    return storeWithOriginalName(req.file)
+        .then(encodeURIComponent)
+        .then(encoded => {
+            res.redirect(`/users/success?fileName=${encoded}`)
+        })
+        .catch(next)
+}
+
+function storeWithOriginalName(file) {
+    var fullNewPath = path.join(file.destination, file.originalname)
+    var rename = util.promisify(fs.rename)
+
+    return rename(file.path, fullNewPath)
+        .then(() => {
+            return file.originalname
+        })
+}
+
+
+UserController.success = function (req, res, next) {
+    var { fileName } = req.query
+    res.render('uploadOk', { fileName })
 };
 
 module.exports = UserController;

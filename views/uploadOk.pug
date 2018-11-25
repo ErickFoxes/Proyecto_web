@@ -1,0 +1,10 @@
+extends layout
+
+include nav/sessionNav
+
+block content
+    include sideBar/mFoldersSideBar
+    h1 Success!
+    p File 
+        a(href="/users/<%=fileName%>" target="_blank")
+        was received correctly!      
