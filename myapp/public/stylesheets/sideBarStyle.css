@@ -1,0 +1,127 @@
+/*lolito*/
+
+/*sidebar (estilo) con settings*/
+.settings{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: 
+    "sideBar settings";
+}
+
+.sidebar{
+    height: 100%;
+    background-color: #ddd3d3;
+    grid-area: sideBar;
+    position: relative;
+}
+
+.userMenu{
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-left: 2em;
+    color: #333333;
+    padding-top: 1em;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+/* .ajustes, .mainOpts{
+    padding-top: 1em;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+} */
+
+.ajustes a img {
+    width: 60px;
+    margin-bottom: 1em;
+}
+
+.userMenu li {
+    padding-bottom: 1em;
+}
+
+.userMenu a:hover{
+    color: rgb(223, 71, 69);
+}
+
+.sideFolderNav a{
+    list-style: none;
+    text-decoration: none;
+    color: #333333;
+}
+
+.sideFolderNav ul{
+    list-style: none;
+}
+
+.inside_settings{
+    grid-area: settings;
+}
+
+/*sidebar con historial*/
+.history{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: 
+    "sideBar historia";
+}
+
+.historial{
+    grid-area: historia;
+}
+
+/*sidebar con myfolder*/
+.folders{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: 
+    "sideBar folder";
+}
+
+.myFolders{
+    grid-area: folder;
+}
+
+/*estilo de sidebar de folder*/
+.sideMFolderNav a{
+    list-style: none;
+    text-decoration: none;
+    color: #333333;
+}
+
+.sideMFolderNav ul{
+    list-style: none;
+}
+
+/*sidebar responsive*/
+@media only screen and (max-width: 767px){
+    .settings{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "sideBar"
+        "settings";
+    }
+
+    .sidebar{
+        text-align: center;
+    }
+
+    .history{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "sideBar"
+        "historia";
+    }
+
+    .folders{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "sideBar"
+        "folder";
+    }
+}
