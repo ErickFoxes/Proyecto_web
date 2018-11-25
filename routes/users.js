@@ -16,8 +16,7 @@ router.use(AuthMiddleware.isAuthentication);
 router.get('/myFolders', UserController.myFolders);
 router.get('/settings', UserController.settings);
 router.get('/history', UserController.history);
-router.get('/upload', UserController.upload);
-router.post('/upload', upload.Uploads);
+router.post('/upload', UserController.Uploads);
 router.put('/:id', UserController.update);
 router.delete('/:id', UserController.delete);
 

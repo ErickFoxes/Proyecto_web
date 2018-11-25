@@ -9,7 +9,14 @@ block content
             h3  #{title}
             //Lo que se agregue aqui me imagino sera dinamico pues se pondran y se quitaran carpetas xd
             p Contenido del folder
-            a(href='/upload') Upload an Image
+        form.register(action='/users/upload', method='POST'/*, enctype='multipart/form-data'*/)
+            if locals.message
+                img(src='#{message}', alt='')
+            br
+            |Selecciona la imagen
+            input(type="file", name='photo')
+            br
+            input(type='submit', value='Guardar')
 
 
 

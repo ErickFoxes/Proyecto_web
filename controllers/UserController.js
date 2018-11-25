@@ -110,14 +110,12 @@ UserController.update = function (req, res) {
 
 UserController.delete = function (req, res, next) {
     if (req.session) {
-        User.findByIdAndRemove(req.params.id /*5bf5d08677ec1b0bb76b68f4*/, function (err, eliminado) {
+        User.findByIdAndRemove(req.params.id, function (err, eliminado) {
             if (err) {
-                // next(err);/*
                 res.status(500);
                 res.json({ code: 500, err });
             } else {
                 res.json({ ok: true, eliminado });
-                //res.redirect('/');
             }
         });
     } else {
@@ -138,26 +136,18 @@ UserController.logout = function (req, res, next) {
     }
 };
 
-UserController.upload = function (req, res) {
-    res.render('upload', { title: 'Upload a file' });
-};
-
 UserController.Uploads = function (req, res) {
     console.log(req.files);
     var tmp_path = req.files.photo.path;
-    // Ruta donde colocaremos las imagenes
-    var target_path = '../public/img/' + req.files.photo.name;
-    // Comprobamos que el fichero es de tipo imagen
+    var target_path = '/img/' + req.files.photo.name;
     if (req.files.photo.type.indexOf('image') == -1) {
         res.send('El fichero que deseas subir no es una imagen');
     } else {
-        // Movemos el fichero temporal tmp_path al directorio que hemos elegido en target_path
         fs.rename(tmp_path, target_path, function (err) {
             if (err) throw err;
-            // Eliminamos el fichero temporal
             fs.unlink(tmp_path, function () {
                 if (err) throw err;
-                res.render('upload', { message: '/img/' + req.files.photo.name, title: 'Upload a  file' });
+                res.render('myFolders', { message: '/img/' + req.files.photo.name, title: 'Upload a  file' });
             });
         });
     }
