@@ -1,13 +1,13 @@
 extends layout
 
 include nav/sessionNav
-include sideBar/folderSideBar
 
 block content
     section(class = "settings")
+        include sideBar/folderSideBar
         div(class = "inside_settings")
             img(src="/img/avatar.jpg", alt="avatar")
-            ul.settings
+            ul.settings1
                 li
                     a(href="#") Change username
                 li

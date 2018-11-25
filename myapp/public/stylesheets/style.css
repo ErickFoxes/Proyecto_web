@@ -13,8 +13,8 @@ body{
 /*header design*/
 .barra{
   background-color: #1b1a1a;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
