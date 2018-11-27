@@ -9,8 +9,10 @@ block content
             h3  #{title}
             //Lo que se agregue aqui me imagino sera dinamico pues se pondran y se quitaran carpetas xd
             p Contenido del folder
-        
-
+        form(name="upload-form" action="/users/upload" method="post" enctype="multipart/form-data")
+            input(type="file", name='attachment', id='attachment')
+            |Subir 
+            input(type='submit', value='Subir')
 
 
 
