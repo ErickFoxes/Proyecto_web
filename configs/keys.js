@@ -3,6 +3,6 @@
 module.exports = {
     mongodb:
     {
-        URI: 'mongodb://localhost:27017/repot'
+        URI: 'mongodb://kaztro:kaztro12@ds117834.mlab.com:17834/repot'
     }
 }
