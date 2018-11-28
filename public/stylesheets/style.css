@@ -219,6 +219,7 @@ body{
   padding-bottom: 4rem;
   text-align: center;
   line-height: 1em;
+  bottom: 0;
 }
 
 .final a{

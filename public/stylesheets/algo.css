@@ -1,1 +1,12 @@
 /*En el bosque de la china la chinita se perdió*/
+
+@media only screen and (min-width: 795px){
+    .mainOpts{
+        min-height: 400px;
+     }
+}
+@media only screen and (max-width: 794px){
+    .mainOpts{
+        min-height: 250px;
+     }
+}

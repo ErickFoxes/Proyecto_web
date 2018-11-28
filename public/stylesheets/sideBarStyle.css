@@ -23,6 +23,7 @@
     padding-top: 1em;
     position: -webkit-sticky;
     position: sticky;
+    height: 100%;
     top: 0;
 }
 
@@ -75,7 +76,7 @@
 /*sidebar con myfolder*/
 .folders{
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 15% 85%;
     grid-template-areas: 
     "sideBar folder";
 }
@@ -83,6 +84,10 @@
 .myFolders{
     grid-area: folder;
 }
+.sideMyFolderxd{
+    grid-area: sideBar;
+}
+
 
 /*estilo de sidebar de folder*/
 .sideMFolderNav a{
@@ -96,7 +101,7 @@
 }
 
 /*sidebar responsive*/
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: 700px){
     .settings{
         display: grid;
         grid-template-columns: 1fr;
@@ -116,12 +121,13 @@
         "sideBar"
         "historia";
     }
-
+    
+}
+@media only screen and (max-width: 800px){
     .folders{
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 25% 75%;
         grid-template-areas: 
-        "sideBar"
-        "folder";
+        "sideBar folder";
     }
 }
