@@ -11,11 +11,11 @@ block content
             //Lo que se agregue aqui me imagino sera dinamico pues se pondran y se quitaran carpetas xd
             form(name="upload-form" action="/users/upload" method="post" enctype="multipart/form-data")
                 p Upload files here:
-                div(class="wrap-button")
+                //div(class="wrap-button")
                     button(class="btn") Select a file
-                    input(type="file", name='attachment', id='attachment')
+                input(type="file", name='attachment', id='attachment' value='Select a file')  
                 |Upload
-                input(type='submit', value='Upload file', id = 'upload_archive')
+                input(type='submit', value='Upload file', id ='upload_archive')
 
 
 
