@@ -1,5 +1,62 @@
 /*En el bosque de la china la chinita se perdió*/
 
+.myFolders form{
+    padding-top: 1rem;
+    padding-left: 2rem;
+}
+
+.myFolders form p{
+    margin-bottom: 0.5em;
+    font-size: 1.2em;
+}
+
+.wrap-button{
+    position: relative;
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.btn{
+    border: 2px solid #FF5E5B;
+    color: #ffffff;
+    background-color: #FF5E5B;
+    padding: 5px 27px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn:hover{
+    background-color: #11A5AD;
+    color: #ffffff;
+    border: 2px solid #11A5AD;
+}
+
+.wrap-button input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+#upload_archive {
+    background-color: #11A5AD;
+    color: #ffffff;
+    border: 2px solid #11A5AD;
+    border-radius: 5px;
+    padding: 5px 27px;
+    margin-left: 0.5rem;
+    font-size: 1rem;
+}
+
+#upload_archive:hover {
+    background-color: #FF5E5B;
+    border: 2px solid #FF5E5B;
+    cursor: pointer;
+
+}
+
 @media only screen and (min-width: 795px){
     .mainOpts{
         min-height: 400px;
