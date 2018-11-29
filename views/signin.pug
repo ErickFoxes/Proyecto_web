@@ -24,7 +24,7 @@ block content
                         label(for='passwordConfirmed', class='label-text-login-signin') Confirm password:
                         input(type='password', name='passwordConfirmed', class='textfield-3',required, minlength=2, maxlenght=30)
                 label(for='email', class='label-text-login-signin') E-mail:
-                input(type='text', name='email', class='textfield-1',required)
+                input(type='text', name='email', class='textfield-1',required, pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")
                 label(for='gender', class='label-text-login-signin') Gender:
                 select(name='Gender',class='select-1')
                     option(value='Female') Female
@@ -33,7 +33,7 @@ block content
                 label(for='birthday', class='label-text-login-signin') Birthday:
                 input(type='date', name='birthday', class='textfield-1',required)
                 label(for='country', class='label-text-login-signin') Country:
-                input(type='text', name='country', class='textfield-1')
+                input(type='text', name='country', class='textfield-1', requiered, minlength=5, maxlenght= 48)
 
                 input(type='submit', value='Sign Up',class='boton-rosa-azul')
             article(class='crear-cuenta')
