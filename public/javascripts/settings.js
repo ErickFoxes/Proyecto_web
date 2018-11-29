@@ -55,7 +55,7 @@ let app = {
                 email: form.email.value,
                 country: form.country.value
             };
-            fetch('/users/post/' + data._id, {
+            fetch('/users/' + JSON.parse(session.user)._id, {///Este puede ser punto critico
                 method: 'PUT',
                 body: JSON.stringify(dataForm),
                 headers: {
@@ -64,31 +64,54 @@ let app = {
             }).then(res => res.json())
                 .then(resData => {
                     if (resData.ok) {
-                        let Nul = document.getElementsByClassName('settings1')[0];
-                        Nul.innerHTML = `<li> 
-                                        <a href = "#" class = "update"> Change user data </a>
-                                    </li>
-                                    <li>
-                                        <a href = "#" class = "delete"> Delete your account (${data._username})</a>
-                                    </li>`;
-                        Nul.getElementsByClassName("delete")[0].addEventListener("click", (event) => {
-                            this.deleteUser(event, data, Nul);
+                        let Ntr = document.createElement('tr');
+                        Ntr.innerHTML = `<td>${resData.old._id}</td>
+                        <td>${dataForm.username}</td>
+                        <td>${dataForm.password}</td>
+                        <td>${dataForm.email}</td>
+                        <td>${dataForm.country}</td>
+                        <td>
+                            <a href="#" class="delete"> Delete </a>
+                            <a href="#" class="update"> Update </a>
+                        </td>`;
+
+                        tbody.replaceChild(Ntr, tr);
+                        Ntr.getElementsByClassName("delete")[0].addEventListener("click", (event) => {
+                            this.deleteUser(event, Ntr, tbody);
                         });
-                        Nul.getElementsByClassName("update")[0].addEventListener("click", (event) => {
-                            this.updateUser(Nul, data);
+                        Ntr.getElementsByClassName("update")[0].addEventListener("click", (event) => {
+                            this.updateUser(Ntr, tbody);
                         });
                     } else { document.getElementsByClassName("errors")[0].innerText = 'It cannot be update'; }
                 });
         });
     },
-    deleteUser: (event, data, ul) => {
+    deleteUser: (event, tr, tbody) => {
         event.preventDefault();
-        fetch('/users/post/' + data._id, {
+        fetch('/users/' + JSON.parse(session.user)._id, {
             method: 'DELETE'
         }).then(res => res.json())
         .then(res => {
-            if (res.ok) {  console.log("lolito"); }
-            else { document.getElementsByClassName("errors")[0].innerText = 'The user Cannot be deleted...' }
+            if (res.ok) { 
+                tbody.removeChild(tr);
+            }
+            else { 
+                document.getElementsByClassName("errors")[0].innerText = 'The user Cannot be deleted...' 
+            }
+        })
+    },
+    loadContent: function() {
+        fetch('/users/', {
+            method: 'GET'
+        }).then(res => {
+            return res.json()
+        })
+        .then(data => {
+            if (data.ok) {
+                data.posts.forEach(element => {
+                    this.addRow(element);
+                });
+            }
         })
     }
 }
