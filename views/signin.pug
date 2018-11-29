@@ -9,14 +9,14 @@ block content
                 h2(class='h2-login') SIGN UP
                 hr(class='barra-singin-azul')
                 label(for='username', class='label-text-login-signin') Username:
-                input#username(type='text', name='username' /*value=user?user.username:'',*/ class='textfield-1', required, minlength=3, maxlenght=10 )
+                input#username(type='text', name='username' /*value=user?user.username:'',*/ class='textfield-1', required, minlength=3, maxlenght=10, pattern="^[a-zA-Z0-9_-]+" )
                 div(class='seccion-2-textfields')
                     div(class='seccion-2-textfields-1')
                         label(for='username', class='label-text-login-signin') First name:
-                        input(type='text', name='firstname', class='textfield-2',required, minlength=2, maxlenght=20)
+                        input(type='text', name='firstname', class='textfield-2',required, minlength=2, maxlenght=20, pattern="^[a-zA-Z]+")
                     div(class='seccion-2-textfields-2')
                         label(for='username', class='label-text-login-signin') Last name:
-                        input(type='text', name='lastname', class='textfield-3',required, minlength=2, maxlenght=20)
+                        input(type='text', name='lastname', class='textfield-3',required, minlength=2, maxlenght=20, pattern="^[a-zA-Z]+")
                     div(class='seccion-2-textfields-3')
                         label(for='password', class='label-text-login-signin') Password:
                         input#password(type='password', name='password', class='textfield-2',required, minlength=5, maxlenght=30)
@@ -33,7 +33,7 @@ block content
                 label(for='birthday', class='label-text-login-signin') Birthday:
                 input(type='date', name='birthday', class='textfield-1',required)
                 label(for='country', class='label-text-login-signin') Country:
-                input(type='text', name='country', class='textfield-1', required, minlength=5, maxlenght= 48)
+                input(type='text', name='country', class='textfield-1', required, minlength=5, maxlenght= 48, pattern="^[a-zA-Z]+")
 
                 input(type='submit', value='Sign Up',class='boton-rosa-azul')
             article(class='crear-cuenta')
