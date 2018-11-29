@@ -9,29 +9,29 @@ block content
                 h2(class='h2-login') SIGN UP
                 hr(class='barra-singin-azul')
                 label(for='username', class='label-text-login-signin') Username:
-                input#username(type='text', name='username' /*value=user?user.username:'',*/ class='textfield-1')
+                input#username(type='text', name='username' /*value=user?user.username:'',*/ class='textfield-1', required, minlength=3, maxlenght=10 )
                 div(class='seccion-2-textfields')
                     div(class='seccion-2-textfields-1')
                         label(for='username', class='label-text-login-signin') First name:
-                        input(type='text', name='firstname', class='textfield-2')
+                        input(type='text', name='firstname', class='textfield-2',required, minlength=2, maxlenght=20)
                     div(class='seccion-2-textfields-2')
                         label(for='username', class='label-text-login-signin') Last name:
-                        input(type='text', name='lastname', class='textfield-3')
+                        input(type='text', name='lastname', class='textfield-3',required, minlength=2, maxlenght=20)
                     div(class='seccion-2-textfields-3')
                         label(for='password', class='label-text-login-signin') Password:
-                        input#password(type='password', name='password', class='textfield-2')
+                        input#password(type='password', name='password', class='textfield-2',required, minlength=5, maxlenght=30)
                     div(class='seccion-2-textfields-4')
                         label(for='passwordConfirmed', class='label-text-login-signin') Confirm password:
-                        input(type='password', name='passwordConfirmed', class='textfield-3')
+                        input(type='password', name='passwordConfirmed', class='textfield-3',required, minlength=2, maxlenght=30)
                 label(for='email', class='label-text-login-signin') E-mail:
-                input(type='text', name='email', class='textfield-1')
+                input(type='text', name='email', class='textfield-1',required)
                 label(for='gender', class='label-text-login-signin') Gender:
                 select(name='Gender',class='select-1')
                     option(value='Female') Female
                     option(value='Male') Male
                     option(value='Other') Other
                 label(for='birthday', class='label-text-login-signin') Birthday:
-                input(type='date', name='birthday', class='textfield-1')
+                input(type='date', name='birthday', class='textfield-1',required)
                 label(for='country', class='label-text-login-signin') Country:
                 input(type='text', name='country', class='textfield-1')
 
