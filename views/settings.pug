@@ -8,18 +8,18 @@ block content
             include sideBar/folderSideBar
         div(class = "inside_settings")
             img(src="/img/avatar.jpg", alt="avatar")
-            ul.settings1
-              //li
-                    a(href="#") Change username
-                li
-                    a(href="#") Change password
-                li
-                    a(href="#") Change profile picture
-                li
-                    a(href="#") Change your country
-                li
-                    a(href="#") Upgrade yor account
-                li
-                    a.delete(href='#') Delete your account
+            p #{JSON.parse(session.user).username}
+            table
+                thead
+                    th id
+                    th Username 
+                    th Password
+                    th e-mail
+                    th Country
+                    th Gender
+                    th Birthday
+                    th Options
+                tbody.settingsX
+                
 
     script(src='/javascripts/settings.js')

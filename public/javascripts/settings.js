@@ -1,41 +1,49 @@
 window.onload = () => {
-    fSettings.init();
+    app.init();
 }
 
-let fSettings = {
+let app = {
     init: function () {
         this.charging();
         this.loadContent();
     },
-    charging: function (data) {
-        let ul = document.getElementsByClassName('settings1')[0];
-        //let li = document.createElement('li');
-        ul.innerHTML = `<li> 
-                            <a href = "#" class = "update"> Change user data </a>
-                        </li>
-                        <li>
-                            <a href = "#" class = "delete"> Delete your account (${data._username})</a>
-                        </li>`;
-        ul.getElementsByClassName("delete")[0].addEventListener("click", (event) => {
-            this.deleteUser(event, data, ul);
+    charging: function () {
+        let tbody = document.getElementsByClassName('settingsX')[0];
+        let tr = document.createElement('tr');
+        tr.innerHTML = `<td>${JSON.parse(session.user)._id}</td>
+                        <td>${JSON.parse(session.user).username}</td>
+                        <td>${JSON.parse(session.user).password}</td>
+                        <td>${JSON.parse(session.user).email}</td>
+                        <td>${JSON.parse(session.user).country}</td>
+                        <td>${JSON.parse(session.user).Gender}</td>
+                        <td>${JSON.parse(session.user).birthday}</td>
+                        <td>
+                            <a href="#" class="delete"> Delete </a>
+                            <a href="#" class="update"> Update </a>
+                        </td>`;
+        tr.getElementsByClassName("delete")[0].addEventListener("click", (event) => {
+            this.deleteUser(event, tr, tbody);
         });
-        ul.getElementsByClassName("update")[0].addEventListener("click", (event) => {
-            this.updateUser(ul, data);
+        tr.getElementsByClassName("update")[0].addEventListener("click", (event) => {
+            this.updateUser(tr, tbody);
         });
+        tbody.appendChild(tr);
     },
-    updateUser: function (ul, data) {
-        ul.innerHTML = `<form action="/users/post/">
-            <input type="text" name="id" readonly value="${data._id}">
-            <input type="text" name="username" value="${data.username}">
-            <input type="text" name="password" value="${data.password}">
-            <input type="text" name="email" value="${data.email}">
-            <input type="text" name="country" value="${data.country}">
-            <input type="text" name="birthday" readonly value="${data.birthday}">
-            <input type="text" name="Gender" readonly  value="${data.Gender}">
-            <input type="submit" value="Save">
-            <input type="button" value="Cancel">
-        </form>`;
-        let form = ul.getElementsByTagName("form")[0];
+    updateUser: function (tr, tbody) {
+        tr.innerHTML = `<td colspan="3">
+                            <form action="/users/">
+                                <input type="text" name="id" readonly value="${JSON.parse(session.user)._id}">
+                                <input type="text" name="username" value="${JSON.parse(session.user).username}">
+                                <input type="text" name="password" value="${JSON.parse(session.user).password}">
+                                <input type="text" name="email" value="${JSON.parse(session.user).email}">
+                                <input type="text" name="country" value="${JSON.parse(session.user).country}">
+                                <input type="text" name="Gender" readonly value="${JSON.parse(session.user).Gender}">
+                                <input type="text" name="birthday" readonly  value="${JSON.parse(session.user).birthday}">
+                                <input type="submit" value="Save">
+                                <input type="button" value="Cancel">
+                            </form>
+                        </td>`;
+        let form = tr.getElementsByTagName("form")[0];
         let deleteUser = this.deleteUser;
         let update = this.updateUser;
 
