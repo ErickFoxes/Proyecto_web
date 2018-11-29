@@ -10,35 +10,38 @@
     font-size: 1.2em;
 }
 
-.wrap-button{
-    position: relative;
-    display: inline-block;
+input[type="file"]{
     margin-right: 1rem;
 }
 
-.btn{
+#attachment::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+#attachment::before {
+    content: 'Select a file';
+    display: inline-block;
     border: 2px solid #FF5E5B;
     color: #ffffff;
     background-color: #FF5E5B;
-    padding: 5px 27px;
+    padding: 5px 20px;
     border-radius: 5px;
     font-size: 1rem;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
 }
 
-.btn:hover{
+#attachment:hover::before {
     background-color: #11A5AD;
     color: #ffffff;
     border: 2px solid #11A5AD;
 }
 
-.wrap-button input[type=file] {
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    cursor: pointer;
-  }
+#attachment:active::before {
+    background:  #FF5E5B;
+}
 
 #upload_archive {
     background-color: #11A5AD;
