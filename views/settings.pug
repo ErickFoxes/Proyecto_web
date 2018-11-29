@@ -9,6 +9,7 @@ block content
         div(class = "inside_settings")
             img(src="/img/avatar.jpg", alt="avatar")
             p #{JSON.parse(session.user).username}
+            p #{JSON.parse(session.user)._id}
             table
                 thead
                     th id
