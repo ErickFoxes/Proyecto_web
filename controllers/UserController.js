@@ -89,6 +89,26 @@ UserController.login = function (req, res, next) {
     });
 };
 
+UserController.showAllU = async function (req, res, next) {
+    let users = await User.find({}, function (err, users) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else { res.json({ ok: true, users }); }
+    });
+    return res.status(200).json(users);
+}
+
+UserController.get = async function (req, res) {
+    let user = await User.findOne({ _id: req.params.id }, function (err, users) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else { res.json({ ok: true, users }); }
+    });
+    return res.status(200).json(user);
+}
+
 UserController.update = function (req, res) {
     let update = {
         username: req.body.username,
