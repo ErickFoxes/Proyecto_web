@@ -9,9 +9,8 @@ block content
         div(class = "inside_settings")
             img(src="/img/avatar.jpg", alt="avatar")
             p #{JSON.parse(session.user).username}
-            p Update your information
             .errors
-            form(action='/users' method='POST' name='upForm')
+            //form(action='/users/' method='POST' name='upForm')
                 label(for='username', class='label-text-login-signin') Username:
                 input#username(type='text', name='username' /*value=user?user.username:'',*/ class='textfield-1', required, minlength=3, maxlenght=10, pattern="^[a-zA-Z0-9_-]+" )
                 div(class='seccion-2-textfields-3')
