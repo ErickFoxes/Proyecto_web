@@ -89,25 +89,40 @@ UserController.login = function (req, res, next) {
     });
 };
 
-UserController.showAllU = async function (req, res, next) {
-    let users = await User.find({}, function (err, users) {
+UserController.showAllU = function (req, res) {
+    debug('Looking for every user');
+    materiaModel.find({}, function(err, users) {
         if (err) {
             res.status(500);
-            res.json({ code: 500, err });
-        } else { res.json({ ok: true, users }); }
+            res.json({
+                status: 500,
+                err
+            });
+        } else { res.json(users)}
     });
-    return res.status(200).json(users);
 }
 
-UserController.get = async function (req, res) {
-    let user = await User.findOne({ _id: req.params.id }, function (err, users) {
-        if (err) {
-            res.status(500);
-            res.json({ code: 500, err });
-        } else { res.json({ ok: true, users }); }
-    });
-    return res.status(200).json(user);
-}
+UserController.get = function (req, res) {
+    if (req.params.id) {
+        User.findOne({
+            _id: req.params.id
+        }, function (err, user) {
+            if (err) {
+                res.status(500);
+                res.json({
+                    status:500,
+                    err
+                });
+            } else { res.json(user); }
+        });
+    } else {
+        res.status(400);
+        res.json({
+            status: 400,
+            err: 'Bad Request'
+        });
+    }
+}               
 
 UserController.update = function (req, res) {
     let update = {
