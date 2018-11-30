@@ -9,7 +9,19 @@ block content
         div(class = "inside_settings")
             img(src="/img/avatar.jpg", alt="avatar")
             p #{JSON.parse(session.user).username}
-            p #{JSON.parse(session.user)._id}
+            p Update your information
+            .errors
+            form(action='/users' method='POST' name='upForm')
+                label(for='username', class='label-text-login-signin') Username:
+                input#username(type='text', name='username' /*value=user?user.username:'',*/ class='textfield-1', required, minlength=3, maxlenght=10, pattern="^[a-zA-Z0-9_-]+" )
+                div(class='seccion-2-textfields-3')
+                    label(for='password', class='label-text-login-signin') Password:
+                    input#password(type='password', name='password', class='textfield-2',required, minlength=5, maxlenght=30)
+                label(for='email', class='label-text-login-signin') E-mail:
+                input(type='text', name='email', class='textfield-1',required, pattern="^[a-zA-Z0-9_.-]+@+[a-zA-Z0-9]+.+[a-zA-Z]")
+                label(for='country', class='label-text-login-signin') Country:
+                input(type='text', name='country', class='textfield-1', required, minlength=5, maxlenght= 48, pattern="^[a-zA-Z]+")
+                input(type='submit' value='Setting')
             table
                 thead
                     th id
