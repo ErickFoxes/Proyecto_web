@@ -16,6 +16,10 @@ UserController.create = function (req, res, next) {
     res.render('signin');
 }
 
+UserController.ver_usu = function (req, res) {
+    res.render('ad_ver_usuarios');
+}
+
 UserController.store = async function (req, res) {
     let user = {
         username: req.body.username,
@@ -66,6 +70,7 @@ UserController.settings = function (req, res) {
 UserController.history = function (req, res) {
     return res.render('history');
 }
+
 
 UserController.login = function (req, res, next) {
     var data = {};

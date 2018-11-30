@@ -1,0 +1,25 @@
+extends layout
+
+include nav/sessionNav
+
+block content
+    section
+        div(.sideMyFolderxd)
+            include sideBar/folderSideBar
+        div(class = "inside_settings")
+            table
+                thead
+                    th id
+                    th username
+                    th country
+                    th options
+                tbody#table_body
+                tr
+                    td 21238945123490gvdsf
+                    td alfredo
+                    td El Salvador
+                    td  
+                        input(type="button", value="Editar")
+                        input(type="button", value="eliminar")
+
+                    

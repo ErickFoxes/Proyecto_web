@@ -12,6 +12,7 @@ router.get('/signin', UserController.create);
 router.post('/signin', UserController.store);
 router.get('/login', UserController.login);
 router.post('/login', UserController.login);
+router.get('/ad_ver_usuarios', UserController.ver_usu);
 router.get('/logout', UserController.logout);
 router.use(AuthMiddleware.isAuthentication);
 router.get('/myFolders', UserController.myFolders);
